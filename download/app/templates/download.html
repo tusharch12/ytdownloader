@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="{% url 'download' %}" class="brand">
+                <img src="{% static 'images/logo.png' %}" alt="Logo">
+                <span>My Website</span>
+            </a>
+        </nav>
+    </header>
+    <main>
+        <h1>{{ title }}</h1>
+        <p>{{ description }}</p>
+        
+        <div class="video-input">
+            <form method="post" action="{% url 'process_video' %}">
+                {% csrf_token %}
+                <input type="text" name="youtube_url" placeholder="Paste YouTube link here">
+                <button type="submit">Submit</button>
+            </form>
+        
+            {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        </div>
+        
+        {% if video_info %}
+        <!-- Video processing response -->
+        <div class="video-response">
+            <h2>Video processing response:</h2>
+            <div class="video-thumbnail">
+                <img src="{{ video_info.thumbnail_url }}" alt="Video Thumbnail">
+                <p>{{ video_info.title }}</p>
+                <p>Duration: {{ video_info.duration }}</p>
+            </div>
+            <div class="video-downloads">
+                <h2>Download video as:</h2>
+                <div class="download-options">
+                    {% for format in video_info.formats %}
+                    <div class="option">
+                        <span>{{ format.resolution }} </span>
+                        <a href="{% url 'download_video' video_info.thumbnail_url format.itag %}" class="download-button">Download</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </main>
+</body>
+</html>
