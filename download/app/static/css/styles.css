@@ -1,0 +1,131 @@
+/* Basic CSS for the navbar */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+}
+
+.navbar .brand {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar .brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar .brand span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.video-input {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.video-input form {
+    display: flex;
+    align-items: center;
+}
+
+.video-input input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.video-input button {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 4px;
+}
+
+.video-input button:hover {
+    background-color: #555;
+}
+
+/* Video processing response */
+.video-response {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: #1a1a3a;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.video-thumbnail {
+    margin-right: 20px;
+}
+
+.video-thumbnail img {
+    max-width: 200px;
+    border-radius: 10px;
+}
+
+.video-downloads {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.video-downloads h2 {
+    margin: 0 0 10px;
+}
+
+.video-button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.download-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.download-button {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #ff0080;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.download-button:hover {
+    background-color: #ff3399;
+}
